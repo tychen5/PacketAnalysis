@@ -1,0 +1,56 @@
+Run started:2020-10-15 05:09:33.555829
+
+Test results:
+>> Issue: [B405:blacklist] Using xml.etree.ElementTree to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.
+   Severity: Low   Confidence: High
+   Location: XmlConverter.py:8
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b405-import-xml-etree
+7	from docx import Document
+8	import xml.etree.ElementTree as ET
+9	from xml.dom import minidom
+
+--------------------------------------------------
+>> Issue: [B408:blacklist] Using minidom to parse untrusted XML data is known to be vulnerable to XML attacks. Replace minidom with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.
+   Severity: Low   Confidence: High
+   Location: XmlConverter.py:9
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b408-import-xml-minidom
+8	import xml.etree.ElementTree as ET
+9	from xml.dom import minidom
+10	from pathlib import Path
+
+--------------------------------------------------
+>> Issue: [B314:blacklist] Using xml.etree.ElementTree.parse to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree.parse with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called
+   Severity: Medium   Confidence: High
+   Location: XmlConverter.py:21
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b313-b320-xml-bad-elementtree
+20	    def readXmlFile(self, xmlFilePath):
+21	        tree = ET.parse(xmlFilePath)
+22	        root = tree.getroot()
+
+--------------------------------------------------
+>> Issue: [B318:blacklist] Using xml.dom.minidom.parseString to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.dom.minidom.parseString with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called
+   Severity: Medium   Confidence: High
+   Location: XmlConverter.py:29
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b313-b320-xml-bad-minidom
+28	        rough_string = ET.tostring(elem, 'utf-8')
+29	        reparsed = minidom.parseString(rough_string)
+30	        return reparsed.toprettyxml(indent="  ")
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 104
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 2.0
+		Medium: 2.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 4.0
+Files skipped (0):

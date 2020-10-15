@@ -1,0 +1,882 @@
+Run started:2020-10-15 05:08:51.334420
+
+Test results:
+>> Issue: [B403:blacklist] Consider possible security implications associated with pickle module.
+   Severity: Low   Confidence: High
+   Location: clusterFiltering.py:7
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b403-import-pickle
+6	
+7	import pickle as pk
+8	import numpy as np
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: clusterFiltering.py:40
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+39	                with open(session_time_path, "rb")as f:
+40	                    session_time_list = pk.load(f)
+41	                break
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: clusterFiltering.py:79
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+78	with open ("/home/antslab/NAS1_RAID6/pcap_inter/2020_01_06/" + isp + "/case_pickles/clusterName_overview_denoise_df_20200106_20200112.pkl", "rb")as file:
+79	    cluster_overview_df = pk.load(file)
+80	cf = ClusterFilter(isp, cluster_overview_df)
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 69
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 1.0
+		Medium: 2.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 3.0
+Files skipped (0):
+Run started:2020-10-15 05:08:51.803770
+
+Test results:
+	No issues identified.
+
+Code scanned:
+	Total lines of code: 4
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 0.0
+Files skipped (0):
+Run started:2020-10-15 05:08:52.580445
+
+Test results:
+>> Issue: [B403:blacklist] Consider possible security implications associated with pickle module.
+   Severity: Low   Confidence: High
+   Location: combine_analysis.py:8
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b403-import-pickle
+7	import ssdeep
+8	import pickle,os,sys,gc
+9	import pandas as pd
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:149
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+148	        path = '/home/antslab/NAS1_RAID6/pcap_inter/'+str(time[:4])+'_'+str(time[4:6])+'_'+str(time[6:])+'/'+isp+'/case_pickles/'+proto+'_upgma_dict_'+str(time)+'.pkl'
+149	        temp = pickle.load(open(path,'rb'))
+150	        three_dict.update(temp)
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:188
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+187	        (proto_df, proto_df_payload,proto_big_dict,proto_loners,proto_score,proto_cluster_score_dict,
+188	         proto_upgma_dict,stat_df) = pickle.load(open(pickle_dir+str(date)+'_'+str(proto)+'_all.pkl','rb'))
+189	    except ValueError:
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:192
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+191	            (proto_df, proto_df_payload,proto_big_dict,proto_loners,proto_score,proto_cluster_score_dict,
+192	             proto_upgma_dict,stat_df,df2) = pickle.load(open(pickle_dir+str(date)+'_'+str(proto)+'_all.pkl','rb'))
+193	        except ValueError:
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:196
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+195	                (proto_df, proto_df_payload,proto_big_dict,proto_loners,proto_score,proto_cluster_score_dict,
+196	                                        proto_upgma_dict,stat_df) = pickle.load(open(pickle_dir+str(date)+'_'+str(proto)+'_all.pkl','rb'))
+197	            except ValueError:
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:199
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+198	                (proto_df, proto_df_payload,proto_big_dict,proto_loners,proto_score,proto_cluster_score_dict,
+199	                                        proto_upgma_dict) = pickle.load(open(pickle_dir+str(date)+'_'+str(proto)+'_all.pkl','rb'))
+200	    except FileNotFoundError:
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: combine_analysis.py:253
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+252	            ip_li = select_df.ip_src.tolist()
+253	            assert len(time_li) == len(country_li) == len(ip_li)
+254	            trend_dict_country[str(date)+"_"+str(key)] = country_li
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: combine_analysis.py:282
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+281	                ip_li = select_df.ip_src.tolist()
+282	                assert len(time_li) == len(country_li) == len(ip_li)
+283	                trend_dict_country[str(date)+"_"+str(key)] = country_li
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: combine_analysis.py:320
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+319	                ori_ssdeep_list.extend(t_q2) #我合併進入別人的群，所以把我群的key hash也加入
+320	                assert len(ori_time_list) == len(ori_country_list) == len(ori_ip_list)
+321	                trend_dict_time_all[combine_id] = ori_time_list
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:409
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+408	for proto in tqdm(proto_li):
+409	    http_df = pickle.load(open('/home/antslab/NAS1_RAID6/pcap_inter/'+str(min_date[:4])+'_'+str(min_date[4:6])+'_'+str(min_date[6:])+'/'+isp+'/case_pickles/'+proto+'_trend_df_'+file_name+'.pkl','rb'))
+410	
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:429
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+428	                (proto_df, proto_df_payload,proto_big_dict,proto_loners,proto_score,proto_cluster_score_dict,
+429	                 proto_upgma_dict,stat_df,df2) = pickle.load(open(pickle_dir+str(date)+'_'+str(proto)+'_all.pkl','rb'))
+430	            except ValueError:
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:433
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+432	                    (proto_df, proto_df_payload,proto_big_dict,proto_loners,proto_score,proto_cluster_score_dict,
+433	                                            proto_upgma_dict,stat_df) = pickle.load(open(pickle_dir+str(date)+'_'+str(proto)+'_all.pkl','rb'))
+434	                except ValueError:
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:436
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+435	                    (proto_df, proto_df_payload,proto_big_dict,proto_loners,proto_score,proto_cluster_score_dict,
+436	                                            proto_upgma_dict) = pickle.load(open(pickle_dir+str(date)+'_'+str(proto)+'_all.pkl','rb'))
+437	            except FileNotFoundError:
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:479
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+478	    if i==0:
+479	        all_df = pickle.load(file=open('/home/antslab/NAS1_RAID6/pcap_inter/'+str(min_date[:4])+'_'+str(min_date[4:6])+'_'+str(min_date[6:])+'/'+isp+'/case_pickles/'+proto+'_trend_df_'+file_name+'.pkl','rb')) #改!!)
+480	        all_df['idx'] = all_df['idx']+'_'+proto
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:482
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+481	    else:
+482	        temp = pickle.load(file=open('/home/antslab/NAS1_RAID6/pcap_inter/'+str(min_date[:4])+'_'+str(min_date[4:6])+'_'+str(min_date[6:])+'/'+isp+'/case_pickles/'+proto+'_trend_df_'+file_name+'.pkl','rb')) #改!!
+483	        temp['idx'] = temp['idx']+'_'+proto
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:512
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+511	pickle_dir = '/home/antslab/NAS1_RAID6/pcap_inter/'+str(min_date[:4])+'_'+str(min_date[4:6])+'_'+str(min_date[6:])+'/'+isp+'/case_pickles/'
+512	all_df = pickle.load(open(pickle_dir+'clusterName_overview_denoise_df_'+str(min_date)+'_'+str(date_li[-1])+'.pkl','rb'))
+513	noise_clusters = pickle.load(open(noise_path,'rb'))
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:513
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+512	all_df = pickle.load(open(pickle_dir+'clusterName_overview_denoise_df_'+str(min_date)+'_'+str(date_li[-1])+'.pkl','rb'))
+513	noise_clusters = pickle.load(open(noise_path,'rb'))
+514	denoise_clusters = pickle.load(open(denoise_path,'rb'))
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:514
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+513	noise_clusters = pickle.load(open(noise_path,'rb'))
+514	denoise_clusters = pickle.load(open(denoise_path,'rb'))
+515	assert len(noise_clusters) + len(denoise_clusters) == len(all_df)
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: combine_analysis.py:515
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+514	denoise_clusters = pickle.load(open(denoise_path,'rb'))
+515	assert len(noise_clusters) + len(denoise_clusters) == len(all_df)
+516	all_df = all_df[~all_df.idx.isin(noise_clusters)]
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: combine_analysis.py:616
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+615	weird_ips = temp.index.tolist()
+616	assert len(weird_ips) == 0
+617	jc_matrix = jc_matrix.drop(['sum'],axis=1)
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:721
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+720	pickle_dir = '/home/antslab/NAS1_RAID6/pcap_inter/'+str(min_date[:4])+'_'+str(min_date[4:6])+'_'+str(min_date[6:])+'/'+isp+'/case_pickles/'
+721	ip_df = pickle.load(open(pickle_dir+'CorrelateIP_ALL_ip_df.pkl','rb')) #改?
+722	
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:727
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+726	    # pickle_path = '/home/antslab/spark_data/pcap_inter/2020_01_06/中華電信/case_pickles/'+'CorrelateIP_APTIP_thr0.8_0106_0107_0108_0109_0110_0111_0112.pkl'
+727	    jc_dict,loner_ip = pickle.load(open(pickle_path,'rb'))
+728	
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:891
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+890	
+891	cluster_name_dict = pickle.load(open('/home/antslab/NAS2_RAID5/pcap_inter/2020_01_06/中華電信/case_pickles/intention_dict_0106_0112.pkl','rb'))
+892	print(cluster_name_dict.keys())
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:1218
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+1217	#         continue
+1218	    list_tuples = pickle.load(open(in_file,'rb'))
+1219	    case_wireshark_df = pd.DataFrame(list_tuples,columns =['Date', 'Protocol', 'SessionTime'])
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:1238
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+1237	                (proto_df, proto_df_payload,proto_big_dict,proto_loners,proto_score,proto_cluster_score_dict,
+1238	                                        proto_upgma_dict,stat_df) = pickle.load(open(pickle_dir+str(date)+'_'+str(proto)+'_all.pkl','rb'))
+1239	            except ValueError:
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:1241
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+1240	                (proto_df, proto_df_payload,proto_big_dict,proto_loners,proto_score,proto_cluster_score_dict,
+1241	                                        proto_upgma_dict) = pickle.load(open(pickle_dir+str(date)+'_'+str(proto)+'_all.pkl','rb'))
+1242	            except FileNotFoundError:
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:1250
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+1249	                    (proto_df, proto_df_payload,proto_big_dict,proto_loners,proto_score,proto_cluster_score_dict,
+1250	                                            proto_upgma_dict,stat_df) = pickle.load(open(pickle_dir+str(date_tmp)+'_'+str(proto)+'_all.pkl','rb'))
+1251	                except ValueError:
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:1253
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+1252	                    (proto_df, proto_df_payload,proto_big_dict,proto_loners,proto_score,proto_cluster_score_dict,
+1253	                                            proto_upgma_dict) = pickle.load(open(pickle_dir+str(date_tmp)+'_'+str(proto)+'_all.pkl','rb'))
+1254	                except FileNotFoundError:
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:1276
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+1275	                    (proto_df, proto_df_payload,proto_big_dict,proto_loners,proto_score,proto_cluster_score_dict,
+1276	                                            proto_upgma_dict,stat_df) = pickle.load(open(pickle_dir+str(date_tmp)+'_'+str(proto)+'_all.pkl','rb'))
+1277	                except ValueError:
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis.py:1279
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+1278	                    (proto_df, proto_df_payload,proto_big_dict,proto_loners,proto_score,proto_cluster_score_dict,
+1279	                                            proto_upgma_dict) = pickle.load(open(pickle_dir+str(date_tmp)+'_'+str(proto)+'_all.pkl','rb'))
+1280	                except FileNotFoundError:
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 873
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 6.0
+		Medium: 24.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 30.0
+Files skipped (0):
+Run started:2020-10-15 05:08:52.935944
+
+Test results:
+>> Issue: [B403:blacklist] Consider possible security implications associated with pickle module.
+   Severity: Low   Confidence: High
+   Location: group2xml.py:7
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b403-import-pickle
+6	
+7	import pickle as pk
+8	import os
+
+--------------------------------------------------
+>> Issue: [B405:blacklist] Using Element to parse untrusted XML data is known to be vulnerable to XML attacks. Replace Element with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.
+   Severity: Low   Confidence: High
+   Location: group2xml.py:10
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b405-import-xml-etree
+9	import re
+10	from xml.etree.ElementTree import Element, SubElement, Comment, tostring
+11	import numpy as np
+
+--------------------------------------------------
+>> Issue: [B404:blacklist] Consider possible security implications associated with subprocess module.
+   Severity: Low   Confidence: High
+   Location: group2xml.py:12
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b404-import-subprocess
+11	import numpy as np
+12	import subprocess
+13	import json
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: group2xml.py:109
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+108	                with open(session_time_path, "rb")as f:
+109	                    session_time_list = pk.load(f)
+110	                break
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: group2xml.py:184
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+183	with open("/home/antslab/spark_data/pcap_inter/2020_01_06/" + isp + "/case_pickles/CorrelateIP_DRAW_stat0.9.pkl", "rb")as file:
+184	    group_df = pk.load(file)
+185	xmlConverter = GroupXmlConverter(isp, group_df)
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 146
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 3.0
+		Medium: 2.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 5.0
+Files skipped (0):
+Run started:2020-10-15 05:08:53.512715
+
+Test results:
+>> Issue: [B403:blacklist] Consider possible security implications associated with pickle module.
+   Severity: Low   Confidence: High
+   Location: GroupPlotter.py:7
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b403-import-pickle
+6	
+7	import pickle as pk
+8	import matplotlib.pyplot as plt
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: GroupPlotter.py:91
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+90	with open("/home/antslab/NAS1_RAID6/pcap_inter/2020_01_06/中華電信/case_pickles/CorrelateIP_DRAW_stat0.9.pkl", "rb")as file:
+91	    group_df = pk.load(file)
+92	gp = GroupPlotter(group_df)
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 70
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 1.0
+		Medium: 1.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 2.0
+Files skipped (0):
+Run started:2020-10-15 05:08:53.777387
+
+Test results:
+	No issues identified.
+
+Code scanned:
+	Total lines of code: 13
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 0.0
+Files skipped (0):
+Run started:2020-10-15 05:08:54.373058
+
+Test results:
+	No issues identified.
+
+Code scanned:
+	Total lines of code: 231
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 0.0
+Files skipped (0):
+Run started:2020-10-15 05:08:54.698838
+
+Test results:
+>> Issue: [B403:blacklist] Consider possible security implications associated with pickle module.
+   Severity: Low   Confidence: High
+   Location: parallel_gzip.py:9
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b403-import-pickle
+8	
+9	import os,sys,pickle,time
+10	import pandas as pd
+
+--------------------------------------------------
+>> Issue: [B404:blacklist] Consider possible security implications associated with subprocess module.
+   Severity: Low   Confidence: High
+   Location: parallel_gzip.py:12
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b404-import-subprocess
+11	import numpy as np
+12	import subprocess
+13	from multiprocessing import Pool 
+
+--------------------------------------------------
+>> Issue: [B603:subprocess_without_shell_equals_true] subprocess call - check for execution of untrusted input.
+   Severity: Low   Confidence: High
+   Location: parallel_gzip.py:53
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b603_subprocess_without_shell_equals_true.html
+52	           "-zvxf", in_file]
+53	        p = subprocess.Popen(cmd, stderr=subprocess.PIPE, stdout=subprocess.PIPE, shell=False)
+54	        out, err = p.communicate()
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: parallel_gzip.py:92
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+91	
+92	assert len(in_file_paths) == len(out_dir_paths)
+93	assert in_file_paths[0].split('/')[-3] == out_dir_paths[0].split('/')[-4]
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: parallel_gzip.py:93
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+92	assert len(in_file_paths) == len(out_dir_paths)
+93	assert in_file_paths[0].split('/')[-3] == out_dir_paths[0].split('/')[-4]
+94	assert in_file_paths[-1].split('/')[-2] == out_dir_paths[-1].split('/')[-3]
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: parallel_gzip.py:94
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+93	assert in_file_paths[0].split('/')[-3] == out_dir_paths[0].split('/')[-4]
+94	assert in_file_paths[-1].split('/')[-2] == out_dir_paths[-1].split('/')[-3]
+95	len(in_file_paths)
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 86
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 6.0
+		Medium: 0.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 6.0
+Files skipped (0):
+Run started:2020-10-15 05:08:55.225463
+
+Test results:
+>> Issue: [B403:blacklist] Consider possible security implications associated with pickle module.
+   Severity: Low   Confidence: High
+   Location: Re-arrange_Data.py:9
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b403-import-pickle
+8	import shutil,glob
+9	import pickle
+10	import path
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: Re-arrange_Data.py:115
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+114	        date_dir = date_dir.replace('-','_')
+115	        assert len(date_dir.split('_')) == 3
+116	        isp_dir = path_li[-4] #isp名稱位置 #需要改
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: Re-arrange_Data.py:119
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+118	        fileName = path_li[-1]
+119	        assert 'pcap' in fileName
+120	        assert date_dir.split('_')[-1] in fileName
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: Re-arrange_Data.py:120
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+119	        assert 'pcap' in fileName
+120	        assert date_dir.split('_')[-1] in fileName
+121	        assert '.tar.gz' in fileName
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: Re-arrange_Data.py:121
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+120	        assert date_dir.split('_')[-1] in fileName
+121	        assert '.tar.gz' in fileName
+122	        save_dir = '../../RAID5/'+'pcap/'+date_dir+'/'+isp_dir #要儲存的位置 #需要改
+
+--------------------------------------------------
+>> Issue: [B303:blacklist] Use of insecure MD2, MD4, MD5, or SHA1 hash function.
+   Severity: Medium   Confidence: High
+   Location: Re-arrange_Data.py:129
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b303-md5
+128	            print(path)
+129	            ori = hashlib.md5(open(path,'rb').read()).hexdigest()
+130	            dest =  hashlib.md5(open('../../RAID5/'+'pcap/'+date_dir+'/'+isp_dir+'/'+fileName,'rb').read()).hexdigest()
+
+--------------------------------------------------
+>> Issue: [B303:blacklist] Use of insecure MD2, MD4, MD5, or SHA1 hash function.
+   Severity: Medium   Confidence: High
+   Location: Re-arrange_Data.py:130
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b303-md5
+129	            ori = hashlib.md5(open(path,'rb').read()).hexdigest()
+130	            dest =  hashlib.md5(open('../../RAID5/'+'pcap/'+date_dir+'/'+isp_dir+'/'+fileName,'rb').read()).hexdigest()
+131	            if ori == dest:
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: Re-arrange_Data.py:139
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+138	        date_dir = date_dir.replace('-','_')
+139	        assert len(date_dir.split('_')) == 3
+140	        type_dir = path_li[-3] #hp的type #需要改
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: Re-arrange_Data.py:141
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+140	        type_dir = path_li[-3] #hp的type #需要改
+141	        assert type_dir in ['amun', 'cowrie', 'dionaea',  'glastopf']
+142	        isp_dir = path_li[-5] #isp名稱位置 #需要改
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: Re-arrange_Data.py:145
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+144	        fileName = path_li[-1]
+145	        assert type_dir in fileName
+146	        assert date_dir.split('_')[-1] in fileName
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: Re-arrange_Data.py:146
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+145	        assert type_dir in fileName
+146	        assert date_dir.split('_')[-1] in fileName
+147	        assert '.tar.gz' in fileName
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: Re-arrange_Data.py:147
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+146	        assert date_dir.split('_')[-1] in fileName
+147	        assert '.tar.gz' in fileName
+148	        save_dir = '../../RAID5/'+'honeypot/'+date_dir+'/'+type_dir+'/'+isp_dir#要儲存的位置 #需要改
+
+--------------------------------------------------
+>> Issue: [B303:blacklist] Use of insecure MD2, MD4, MD5, or SHA1 hash function.
+   Severity: Medium   Confidence: High
+   Location: Re-arrange_Data.py:155
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b303-md5
+154	            print(path)
+155	            ori = hashlib.md5(open(path,'rb').read()).hexdigest()
+156	            dest =  hashlib.md5(open(save_dir+'/'+fileName,'rb').read()).hexdigest()
+
+--------------------------------------------------
+>> Issue: [B303:blacklist] Use of insecure MD2, MD4, MD5, or SHA1 hash function.
+   Severity: Medium   Confidence: High
+   Location: Re-arrange_Data.py:156
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b303-md5
+155	            ori = hashlib.md5(open(path,'rb').read()).hexdigest()
+156	            dest =  hashlib.md5(open(save_dir+'/'+fileName,'rb').read()).hexdigest()
+157	            if ori == dest: #真的一模一樣舊移除舊的
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 99
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 10.0
+		Medium: 4.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 14.0
+Files skipped (0):
+Run started:2020-10-15 05:08:55.734995
+
+Test results:
+>> Issue: [B403:blacklist] Consider possible security implications associated with pickle module.
+   Severity: Low   Confidence: High
+   Location: ssdeep_payloadClean.py:8
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b403-import-pickle
+7	import ssdeep
+8	import pickle,os,sys,gc
+9	import pandas as pd
+
+--------------------------------------------------
+>> Issue: [B404:blacklist] Consider possible security implications associated with subprocess module.
+   Severity: Low   Confidence: High
+   Location: ssdeep_payloadClean.py:16
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b404-import-subprocess
+15	from multiprocessing import Process, Manager, Pool
+16	import subprocess
+17	from multiprocessing import Pool 
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: ssdeep_payloadClean.py:685
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+684	    path = '/home/antslab/spark_data/pcap_inter/2020_01_'+str(time)+'/中華電信/case_pickles/'+proto+'_upgma_dict_01'+str(time)+'.pkl'
+685	    temp = pickle.load(open(path,'rb'))
+686	    three_dict.update(temp)
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 496
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 2.0
+		Medium: 1.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 3.0
+Files skipped (0):
+Run started:2020-10-15 05:08:56.507408
+
+Test results:
+>> Issue: [B404:blacklist] Consider possible security implications associated with subprocess module.
+   Severity: Low   Confidence: High
+   Location: TcpPayloadConverter.py:9
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b404-import-subprocess
+8	import re
+9	import subprocess
+10	import json
+
+--------------------------------------------------
+>> Issue: [B603:subprocess_without_shell_equals_true] subprocess call - check for execution of untrusted input.
+   Severity: Low   Confidence: High
+   Location: TcpPayloadConverter.py:58
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b603_subprocess_without_shell_equals_true.html
+57	            try:
+58	                p = subprocess.Popen(cmd, stdout = subprocess.PIPE, stdin = subprocess.PIPE)
+59	                (output, err) = p.communicate()
+
+--------------------------------------------------
+>> Issue: [B112:try_except_continue] Try, Except, Continue detected.
+   Severity: Low   Confidence: High
+   Location: TcpPayloadConverter.py:110
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b112_try_except_continue.html
+109	                            payload[i].append(b"".join(_s))
+110	                        except Exception as e:
+111	                            continue
+
+--------------------------------------------------
+>> Issue: [B112:try_except_continue] Try, Except, Continue detected.
+   Severity: Low   Confidence: High
+   Location: TcpPayloadConverter.py:112
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b112_try_except_continue.html
+111	                            continue
+112	                except: #pcap_json NoneType
+113	                    continue
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 94
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 4.0
+		Medium: 0.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 4.0
+Files skipped (0):
+Run started:2020-10-15 05:08:57.339743
+
+Test results:
+>> Issue: [B405:blacklist] Using xml.etree.ElementTree to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.
+   Severity: Low   Confidence: High
+   Location: XmlConverter.py:8
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b405-import-xml-etree
+7	from docx import Document
+8	import xml.etree.ElementTree as ET
+9	from xml.dom import minidom
+
+--------------------------------------------------
+>> Issue: [B408:blacklist] Using minidom to parse untrusted XML data is known to be vulnerable to XML attacks. Replace minidom with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.
+   Severity: Low   Confidence: High
+   Location: XmlConverter.py:9
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b408-import-xml-minidom
+8	import xml.etree.ElementTree as ET
+9	from xml.dom import minidom
+10	from pathlib import Path
+
+--------------------------------------------------
+>> Issue: [B314:blacklist] Using xml.etree.ElementTree.parse to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree.parse with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called
+   Severity: Medium   Confidence: High
+   Location: XmlConverter.py:21
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b313-b320-xml-bad-elementtree
+20	    def readXmlFile(self, xmlFilePath):
+21	        tree = ET.parse(xmlFilePath)
+22	        root = tree.getroot()
+
+--------------------------------------------------
+>> Issue: [B318:blacklist] Using xml.dom.minidom.parseString to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.dom.minidom.parseString with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called
+   Severity: Medium   Confidence: High
+   Location: XmlConverter.py:29
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b313-b320-xml-bad-minidom
+28	        rough_string = ET.tostring(elem, 'utf-8')
+29	        reparsed = minidom.parseString(rough_string)
+30	        return reparsed.toprettyxml(indent="  ")
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 104
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 2.0
+		Medium: 2.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 4.0
+Files skipped (0):

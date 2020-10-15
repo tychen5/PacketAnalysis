@@ -1,0 +1,56 @@
+Run started:2020-10-15 05:09:33.221702
+
+Test results:
+>> Issue: [B404:blacklist] Consider possible security implications associated with subprocess module.
+   Severity: Low   Confidence: High
+   Location: TcpPayloadConverter.py:9
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b404-import-subprocess
+8	import re
+9	import subprocess
+10	import json
+
+--------------------------------------------------
+>> Issue: [B603:subprocess_without_shell_equals_true] subprocess call - check for execution of untrusted input.
+   Severity: Low   Confidence: High
+   Location: TcpPayloadConverter.py:58
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b603_subprocess_without_shell_equals_true.html
+57	            try:
+58	                p = subprocess.Popen(cmd, stdout = subprocess.PIPE, stdin = subprocess.PIPE)
+59	                (output, err) = p.communicate()
+
+--------------------------------------------------
+>> Issue: [B112:try_except_continue] Try, Except, Continue detected.
+   Severity: Low   Confidence: High
+   Location: TcpPayloadConverter.py:110
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b112_try_except_continue.html
+109	                            payload[i].append(b"".join(_s))
+110	                        except Exception as e:
+111	                            continue
+
+--------------------------------------------------
+>> Issue: [B112:try_except_continue] Try, Except, Continue detected.
+   Severity: Low   Confidence: High
+   Location: TcpPayloadConverter.py:112
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b112_try_except_continue.html
+111	                            continue
+112	                except: #pcap_json NoneType
+113	                    continue
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 94
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 4.0
+		Medium: 0.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 4.0
+Files skipped (0):

@@ -1,0 +1,146 @@
+Run started:2020-10-15 05:09:32.249306
+
+Test results:
+>> Issue: [B403:blacklist] Consider possible security implications associated with pickle module.
+   Severity: Low   Confidence: High
+   Location: Re-arrange_Data.py:9
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b403-import-pickle
+8	import shutil,glob
+9	import pickle
+10	import path
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: Re-arrange_Data.py:115
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+114	        date_dir = date_dir.replace('-','_')
+115	        assert len(date_dir.split('_')) == 3
+116	        isp_dir = path_li[-4] #isp名稱位置 #需要改
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: Re-arrange_Data.py:119
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+118	        fileName = path_li[-1]
+119	        assert 'pcap' in fileName
+120	        assert date_dir.split('_')[-1] in fileName
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: Re-arrange_Data.py:120
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+119	        assert 'pcap' in fileName
+120	        assert date_dir.split('_')[-1] in fileName
+121	        assert '.tar.gz' in fileName
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: Re-arrange_Data.py:121
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+120	        assert date_dir.split('_')[-1] in fileName
+121	        assert '.tar.gz' in fileName
+122	        save_dir = '../../RAID5/'+'pcap/'+date_dir+'/'+isp_dir #要儲存的位置 #需要改
+
+--------------------------------------------------
+>> Issue: [B303:blacklist] Use of insecure MD2, MD4, MD5, or SHA1 hash function.
+   Severity: Medium   Confidence: High
+   Location: Re-arrange_Data.py:129
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b303-md5
+128	            print(path)
+129	            ori = hashlib.md5(open(path,'rb').read()).hexdigest()
+130	            dest =  hashlib.md5(open('../../RAID5/'+'pcap/'+date_dir+'/'+isp_dir+'/'+fileName,'rb').read()).hexdigest()
+
+--------------------------------------------------
+>> Issue: [B303:blacklist] Use of insecure MD2, MD4, MD5, or SHA1 hash function.
+   Severity: Medium   Confidence: High
+   Location: Re-arrange_Data.py:130
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b303-md5
+129	            ori = hashlib.md5(open(path,'rb').read()).hexdigest()
+130	            dest =  hashlib.md5(open('../../RAID5/'+'pcap/'+date_dir+'/'+isp_dir+'/'+fileName,'rb').read()).hexdigest()
+131	            if ori == dest:
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: Re-arrange_Data.py:139
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+138	        date_dir = date_dir.replace('-','_')
+139	        assert len(date_dir.split('_')) == 3
+140	        type_dir = path_li[-3] #hp的type #需要改
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: Re-arrange_Data.py:141
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+140	        type_dir = path_li[-3] #hp的type #需要改
+141	        assert type_dir in ['amun', 'cowrie', 'dionaea',  'glastopf']
+142	        isp_dir = path_li[-5] #isp名稱位置 #需要改
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: Re-arrange_Data.py:145
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+144	        fileName = path_li[-1]
+145	        assert type_dir in fileName
+146	        assert date_dir.split('_')[-1] in fileName
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: Re-arrange_Data.py:146
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+145	        assert type_dir in fileName
+146	        assert date_dir.split('_')[-1] in fileName
+147	        assert '.tar.gz' in fileName
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: Re-arrange_Data.py:147
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+146	        assert date_dir.split('_')[-1] in fileName
+147	        assert '.tar.gz' in fileName
+148	        save_dir = '../../RAID5/'+'honeypot/'+date_dir+'/'+type_dir+'/'+isp_dir#要儲存的位置 #需要改
+
+--------------------------------------------------
+>> Issue: [B303:blacklist] Use of insecure MD2, MD4, MD5, or SHA1 hash function.
+   Severity: Medium   Confidence: High
+   Location: Re-arrange_Data.py:155
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b303-md5
+154	            print(path)
+155	            ori = hashlib.md5(open(path,'rb').read()).hexdigest()
+156	            dest =  hashlib.md5(open(save_dir+'/'+fileName,'rb').read()).hexdigest()
+
+--------------------------------------------------
+>> Issue: [B303:blacklist] Use of insecure MD2, MD4, MD5, or SHA1 hash function.
+   Severity: Medium   Confidence: High
+   Location: Re-arrange_Data.py:156
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b303-md5
+155	            ori = hashlib.md5(open(path,'rb').read()).hexdigest()
+156	            dest =  hashlib.md5(open(save_dir+'/'+fileName,'rb').read()).hexdigest()
+157	            if ori == dest: #真的一模一樣舊移除舊的
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 99
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 10.0
+		Medium: 4.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 14.0
+Files skipped (0):

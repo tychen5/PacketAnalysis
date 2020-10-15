@@ -1,0 +1,65 @@
+Run started:2020-10-15 05:09:28.761824
+
+Test results:
+>> Issue: [B403:blacklist] Consider possible security implications associated with pickle module.
+   Severity: Low   Confidence: High
+   Location: group2xml.py:7
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b403-import-pickle
+6	
+7	import pickle as pk
+8	import os
+
+--------------------------------------------------
+>> Issue: [B405:blacklist] Using Element to parse untrusted XML data is known to be vulnerable to XML attacks. Replace Element with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.
+   Severity: Low   Confidence: High
+   Location: group2xml.py:10
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b405-import-xml-etree
+9	import re
+10	from xml.etree.ElementTree import Element, SubElement, Comment, tostring
+11	import numpy as np
+
+--------------------------------------------------
+>> Issue: [B404:blacklist] Consider possible security implications associated with subprocess module.
+   Severity: Low   Confidence: High
+   Location: group2xml.py:12
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b404-import-subprocess
+11	import numpy as np
+12	import subprocess
+13	import json
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: group2xml.py:109
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+108	                with open(session_time_path, "rb")as f:
+109	                    session_time_list = pk.load(f)
+110	                break
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: group2xml.py:184
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+183	with open("/home/antslab/spark_data/pcap_inter/2020_01_06/" + isp + "/case_pickles/CorrelateIP_DRAW_stat0.9.pkl", "rb")as file:
+184	    group_df = pk.load(file)
+185	xmlConverter = GroupXmlConverter(isp, group_df)
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 146
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 3.0
+		Medium: 2.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 5.0
+Files skipped (0):
