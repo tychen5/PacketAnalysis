@@ -1,0 +1,96 @@
+Run started:2020-10-30 02:08:52.065285
+
+Test results:
+>> Issue: [B403:blacklist] Consider possible security implications associated with pickle module.
+   Severity: Low   Confidence: High
+   Location: combine_analysis_py2.py:8
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b403-import-pickle
+7	import ssdeep
+8	import pickle, os, sys, gc
+9	import pandas as pd
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis_py2.py:63
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+62	# 第二次跑:
+63	all_df = pickle.load(
+64	    open(pickle_dir + 'clusterName_overview_denoise_df_' + str(min_date) + '_' + str(date_li[-1]) + '.pkl', 'rb'))
+65	noise_clusters = pickle.load(open(noise_path, 'rb'))
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis_py2.py:65
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+64	    open(pickle_dir + 'clusterName_overview_denoise_df_' + str(min_date) + '_' + str(date_li[-1]) + '.pkl', 'rb'))
+65	noise_clusters = pickle.load(open(noise_path, 'rb'))
+66	denoise_clusters = pickle.load(open(denoise_path, 'rb'))
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis_py2.py:66
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+65	noise_clusters = pickle.load(open(noise_path, 'rb'))
+66	denoise_clusters = pickle.load(open(denoise_path, 'rb'))
+67	assert len(noise_clusters) + len(denoise_clusters) == len(all_df)
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: combine_analysis_py2.py:67
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+66	denoise_clusters = pickle.load(open(denoise_path, 'rb'))
+67	assert len(noise_clusters) + len(denoise_clusters) == len(all_df)
+68	
+69	
+70	def cut_protocol(cluster_id):
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: combine_analysis_py2.py:157
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+156	weird_ips = temp.index.tolist()
+157	assert len(weird_ips) == 0  # 檢查!! 不能有assertion err!!!
+158	jc_matrix = jc_matrix.drop(['sum'], axis=1)
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis_py2.py:283
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+282	    pickle_path = pickle_dir + 'CorrelateIP_APTIP_thr' + str(thr) + '_' + file_name + '.pkl'  # pickle路徑
+283	    jc_dict, loner_ip = pickle.load(open(pickle_path, 'rb'))
+284	
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis_py2.py:364
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+363	# 需要各Cluster所對應之mitre轉換!
+364	cluster_name_dict = pickle.load(
+365	    open('/home/antslab/NAS2_RAID5/pcap_inter/2020_01_06/中華電信/case_pickles/intention_dict_0106_0112.pkl', 'rb'))
+366	print(cluster_name_dict.keys())
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 448
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 3.0
+		Medium: 5.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 8.0
+Files skipped (0):

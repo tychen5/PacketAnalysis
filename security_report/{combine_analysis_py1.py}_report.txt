@@ -1,0 +1,156 @@
+Run started:2020-10-30 02:08:41.514056
+
+Test results:
+>> Issue: [B403:blacklist] Consider possible security implications associated with pickle module.
+   Severity: Low   Confidence: High
+   Location: combine_analysis_py1.py:7
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b403-import-pickle
+6	import ssdeep
+7	import pickle, sys
+8	import pandas as pd
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis_py1.py:45
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+44	        (proto_df, proto_df_payload, proto_big_dict, proto_loners, proto_score, proto_cluster_score_dict,
+45	         proto_upgma_dict, stat_df) = pickle.load(open(pickle_dir + str(date) + '_' + str(proto) + '_all.pkl', 'rb'))
+46	    except ValueError:
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis_py1.py:49
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+48	            (proto_df, proto_df_payload, proto_big_dict, proto_loners, proto_score, proto_cluster_score_dict,
+49	             proto_upgma_dict, stat_df, df2) = pickle.load(
+50	                open(pickle_dir + str(date) + '_' + str(proto) + '_all.pkl', 'rb'))
+51	        except ValueError:
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis_py1.py:54
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+53	                (proto_df, proto_df_payload, proto_big_dict, proto_loners, proto_score, proto_cluster_score_dict,
+54	                 proto_upgma_dict, stat_df) = pickle.load(
+55	                    open(pickle_dir + str(date) + '_' + str(proto) + '_all.pkl', 'rb'))
+56	            except ValueError:
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis_py1.py:58
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+57	                (proto_df, proto_df_payload, proto_big_dict, proto_loners, proto_score, proto_cluster_score_dict,
+58	                 proto_upgma_dict) = pickle.load(open(pickle_dir + str(date) + '_' + str(proto) + '_all.pkl', 'rb'))
+59	    except FileNotFoundError:
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: combine_analysis_py1.py:114
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+113	            ip_li = select_df.ip_src.tolist()
+114	            assert len(time_li) == len(country_li) == len(ip_li)
+115	            trend_dict_country[str(date) + "_" + str(key)] = country_li
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: combine_analysis_py1.py:143
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+142	                ip_li = select_df.ip_src.tolist()
+143	                assert len(time_li) == len(country_li) == len(ip_li)
+144	                trend_dict_country[str(date) + "_" + str(key)] = country_li
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   Location: combine_analysis_py1.py:181
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b101_assert_used.html
+180	                ori_ssdeep_list.extend(t_q2)  # 我合併進入別人的群，所以把我群的key hash也加入
+181	                assert len(ori_time_list) == len(ori_country_list) == len(ori_ip_list)
+182	                trend_dict_time_all[combine_id] = ori_time_list
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis_py1.py:248
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+247	for proto in tqdm(proto_li):
+248	    http_df = pickle.load(open(
+249	        '/home/antslab/NAS1_RAID6/pcap_inter/' + str(min_date[:4]) + '_' + str(min_date[4:6]) + '_' + str(
+250	            min_date[6:]) + '/' + isp + '/case_pickles/' + proto + '_trend_df_' + file_name + '.pkl', 'rb'))
+251	
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis_py1.py:271
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+270	                (proto_df, proto_df_payload, proto_big_dict, proto_loners, proto_score, proto_cluster_score_dict,
+271	                 proto_upgma_dict, stat_df, df2) = pickle.load(
+272	                    open(pickle_dir + str(date) + '_' + str(proto) + '_all.pkl', 'rb'))
+273	            except ValueError:
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis_py1.py:276
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+275	                    (proto_df, proto_df_payload, proto_big_dict, proto_loners, proto_score, proto_cluster_score_dict,
+276	                     proto_upgma_dict, stat_df) = pickle.load(
+277	                        open(pickle_dir + str(date) + '_' + str(proto) + '_all.pkl', 'rb'))
+278	                except ValueError:
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis_py1.py:280
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+279	                    (proto_df, proto_df_payload, proto_big_dict, proto_loners, proto_score, proto_cluster_score_dict,
+280	                     proto_upgma_dict) = pickle.load(open(pickle_dir + str(date) + '_' + str(proto) + '_all.pkl', 'rb'))
+281	            except FileNotFoundError:
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis_py1.py:308
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+307	    if i == 0:
+308	        all_df = pickle.load(file=open(
+309	            '/home/antslab/NAS1_RAID6/pcap_inter/' + str(min_date[:4]) + '_' + str(min_date[4:6]) + '_' + str(
+310	                min_date[6:]) + '/' + isp + '/case_pickles/' + proto + '_trend_df_' + file_name + '.pkl', 'rb'))  # 改!!)
+311	        all_df['idx'] = all_df['idx'] + '_' + proto
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: combine_analysis_py1.py:313
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+312	    else:
+313	        temp = pickle.load(file=open(
+314	            '/home/antslab/NAS1_RAID6/pcap_inter/' + str(min_date[:4]) + '_' + str(min_date[4:6]) + '_' + str(
+315	                min_date[6:]) + '/' + isp + '/case_pickles/' + proto + '_trend_df_' + file_name + '.pkl', 'rb'))  # 改!!
+316	        temp['idx'] = temp['idx'] + '_' + proto
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 279
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 4.0
+		Medium: 10.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 14.0
+Files skipped (0):
