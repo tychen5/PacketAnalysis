@@ -54,7 +54,7 @@ class pcap_parser:
         return self.pcap_json
         
     def parse(self):
-        cmd = ["tshark","-r",self.pcap, "-T", "json", "-e", "frame.time_epoch", "-e","frame.number","-e","frame.time","-e","frame.protocols","-e","ip.src","-e","ip.dst","-e","ip.proto","-e","tcp.srcport","-e","tcp.dstport","-e","frame.len" "-e", "udp.length", "-e","tcp.len", "-e", "tcp.hdr_len", "-e", "udp.srcport", "-e", "udp.dstport", "-e", "icmp.length", "-e", "icmp.length.original_datagram", "-e", "tcp.payload"]
+        cmd = ["tshark","-r",self.pcap, "-T", "json", "-e", "frame.time_epoch", "-e","frame.number","-e","frame.time","-e","frame.protocols","-e","ip.src","-e","ip.dst","-e","ip.proto","-e","tcp.srcport","-e","tcp.dstport","-e","frame.len","-e", "udp.length", "-e","tcp.len", "-e", "tcp.hdr_len", "-e", "udp.srcport", "-e", "udp.dstport", "-e", "icmp.length", "-e", "icmp.length.original_datagram", "-e", "tcp.payload"]
         p = subprocess.Popen(cmd, stdout = subprocess.PIPE, stdin = subprocess.PIPE)
         (output, err) = p.communicate()
         self.json = json.loads(output)
@@ -131,6 +131,7 @@ def multiprocessing_parser(pcap, date, ISP):
     
 if __name__=="__main__":
     s_time = time.time()
+    #pcap_dir_path = "/home/antslab/NAS2_RAID6/pcap_process/2020_01_06/中華電信/snort.2020-01-06_dir/"
     pcap_dir_path = sys.argv[1]
     ISP = pcap_dir_path.split("/")[-3]
     date = pcap_dir_path.split("/")[-4]
