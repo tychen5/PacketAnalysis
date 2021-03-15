@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+./.git/objects/pack/pack-f75415d01151067c01918d5778be7bf3af8edf07.pack
+./pickle/台灣基礎開發_clusters_correlateIP_0.9.pkl
+./pickle/台灣碩網_clusters_correlateIP_0.9.pkl
+./GeoIP2-DB/GeoIP2-City/GeoIP2-City.mmdb
+./GeoIP2-DB/GeoIP2-City_20200526/GeoIP2-City.mmdb
+*_clusters_correlateIP_0.9.pkl
