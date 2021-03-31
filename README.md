@@ -9,5 +9,6 @@ Handover for TTC to deploy.
 
 * 安裝軟硬體及環境: https://docs.google.com/document/d/1hemAIYhw84OIANJScK77h5zLdyZ0ij6911vLkqwusZI/edit
 * 程式流程與操作步驟: https://docs.google.com/document/d/1_-VT2_hrhTVkS1ckowEbV9Q6NuM8vHQcGkppMQwx31o/edit
+* 所有程式邏輯與說明教學影片: https://drive.google.com/file/d/1AVdtsUXWuszL4DPW52pD80Sn9fBdtmbP/view?usp=sharing
 
 * analyze code v2為10/15交付程式碼名稱原為ssdeep_payloadClean.ipynb及combine_analysis.ipynb的改版及說明
