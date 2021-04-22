@@ -17,5 +17,5 @@ Handover for TTC to deploy.
 
 - 2021 new AI embedding NN model，同時解決represemtation、TTP tagging、Signature等三大面向
   - 模型架構草稿簡報: https://mega.nz/file/k0sUgS7I#9q86iCb_FaaQ0MyYXeO-J2ehgJtM9USEwbrF0UVxcjc
-  - 模型架構設計影片說明: https://mega.nz/file/0hlATQQb#Fkdq7XFrulPOi4idyHd25Un0ZFZbjWaBwrLaXQCjwOw
+  - 模型架構設計影片說明: https://mega.nz/file/0hlATQQb#Fkdq7XFrulPOi4idyHd25Un0ZFZbjWaBwrLaXQCjwOw 、 https://mega.nz/file/h0sWiQRb#zWf4Bp7K4xSKR3kNMuqw7x6FBCe27V97u0x2uaWz5Qk
   
