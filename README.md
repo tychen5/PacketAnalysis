@@ -15,7 +15,10 @@ Handover for TTC to deploy.
 
 * analyze code v2為10/15交付程式碼名稱原為ssdeep_payloadClean.ipynb及combine_analysis.ipynb的改版及說明
 
-- 2021 new AI embedding NN model，同時解決represemtation、TTP tagging、Signature等三大面向
-  - 模型架構草稿簡報: https://mega.nz/file/k0sUgS7I#9q86iCb_FaaQ0MyYXeO-J2ehgJtM9USEwbrF0UVxcjc
-  - 模型架構設計影片說明: https://mega.nz/file/0hlATQQb#Fkdq7XFrulPOi4idyHd25Un0ZFZbjWaBwrLaXQCjwOw 、 https://mega.nz/file/h0sWiQRb#zWf4Bp7K4xSKR3kNMuqw7x6FBCe27V97u0x2uaWz5Qk
+- 2021 new AI embedding NN model，同時解決representation、TTP tagging、Signature等三大面向
+  - 模型架構草稿筆記: https://mega.nz/file/5kkAHaZK#NR5QHSISgWbpnFe4v8CYdhoDHpdbHeTKLhJUYd8W-74
+  - 模型架構設計影片說明: 
+    1. 完整各項方法survey結果 (present for TTC): https://mega.nz/file/0hlATQQb#Fkdq7XFrulPOi4idyHd25Un0ZFZbjWaBwrLaXQCjwOw 
+    2. 完整各項方法overview (present in SINICA): https://mega.nz/file/h0sWiQRb#zWf4Bp7K4xSKR3kNMuqw7x6FBCe27V97u0x2uaWz5Qk
+    3. 最終採用方法簡介 (present for TTC): https://mega.nz/file/Yhsg0CCJ#iRX8q3qa-uyi8nU6BTpJGlN-r8Ekw39D8hAoTco4F1E
   
