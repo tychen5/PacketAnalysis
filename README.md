@@ -21,4 +21,5 @@ Handover for TTC to deploy.
     1. 完整各項方法survey結果 (present for TTC): https://mega.nz/file/0hlATQQb#Fkdq7XFrulPOi4idyHd25Un0ZFZbjWaBwrLaXQCjwOw 
     2. 完整各項方法overview (present in SINICA): https://mega.nz/file/h0sWiQRb#zWf4Bp7K4xSKR3kNMuqw7x6FBCe27V97u0x2uaWz5Qk
     3. 最終採用方法簡介 (present for TTC): https://mega.nz/file/Yhsg0CCJ#iRX8q3qa-uyi8nU6BTpJGlN-r8Ekw39D8hAoTco4F1E
+  - 實做步驟與細節方向說明簡報(V1.0): https://mega.nz/file/h5sWWSpL#p6U7a1pAvVJdoQGo1_5dqU9CDkECvqA13oGzJFbDjRs
   
