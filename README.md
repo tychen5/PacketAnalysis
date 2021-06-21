@@ -24,3 +24,4 @@ Handover for TTC to deploy.
   - 實做步驟與細節方向說明簡報(V1.0): https://mega.nz/file/h5sWWSpL#p6U7a1pAvVJdoQGo1_5dqU9CDkECvqA13oGzJFbDjRs
     -  Short Overview快速解說: https://mega.nz/file/hkty2AgA#ZGsQHl1I7wiBcY2KaYt32GmnzI2a2gjWQ6Jbj1tjI4M
   - 2021 AI model tagging project: https://drive.google.com/drive/folders/13M9QRr0qKXsfC0TJR_Y3IAx4YI0x5rJu?usp=sharing 
+    - 初步格式講解: https://mega.nz/file/Jp1UmBaZ#fTi2_VU13s-CtVMgZ4kbkos4WXFeVmspOH8iGL_bV4Y
