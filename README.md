@@ -25,3 +25,4 @@ Handover for TTC to deploy.
     -  Short Overview快速解說: https://mega.nz/file/hkty2AgA#ZGsQHl1I7wiBcY2KaYt32GmnzI2a2gjWQ6Jbj1tjI4M
   - 2021 AI model tagging project: https://drive.google.com/drive/folders/13M9QRr0qKXsfC0TJR_Y3IAx4YI0x5rJu?usp=sharing 
     - 初步格式講解: https://mega.nz/file/Jp1UmBaZ#fTi2_VU13s-CtVMgZ4kbkos4WXFeVmspOH8iGL_bV4Y
+  - Packet BERT pretraining TASK解說: https://mega.nz/file/100DxSjb#bVIUQrvpjWvTnXhAEBG6r9eHZ_w3lmEa59Dt8Fo0Y3Y
